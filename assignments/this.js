@@ -11,24 +11,24 @@
 
 // // Principle 1
 // // code example for Window Binding
-// function myName(name) {
-//     console.log(this);
-//     return name;
-// }
-// myName('Pikachu');
+function myName(name) {
+    console.log(this);
+    return name;
+}
+myName('Pikachu');
 
 
 // // Principle 2
 // // code example for Implicit Binding
 
-// const myObj = {
-//     greeting: 'Konnichiwa',
-//     sayHello: function(name) {
-//         console.log(`${this.greeting} my name is ${name}`);
-//         console.log(this);
-//     }
-// };
-// myObj.sayHello('Pikachu');
+const myObj = {
+    greeting: 'Konnichiwa',
+    sayHello: function(name) {
+        console.log(`${this.greeting} my name is ${name}`);
+        console.log(this);
+    }
+};
+myObj.sayHello('Pikachu');
 
 // // Principle 3
 // // code example for New Binding
@@ -51,21 +51,20 @@
 // // Principle 4
 // // code example for Explicit Binding
 
-// function CordialPerson(greeter) {
-//     this.greeting = 'Konnichiwa, ';
-//     this.greeter = greeter;
-//     this.speak = function() {
-//         console.log(this.greeting + this.greeter);
-//         console.log(this);
-//     };
-// }
-// const daniel = new CordialPerson('Pikachu');
-// const pikachu = new CordialPerson('Daniel');
+function CordialPerson(greeter) {
+    this.greeting = 'Konnichiwa, ';
+    this.greeter = greeter;
+    this.speak = function() {
+        console.log(this.greeting + this.greeter);
+        console.log(this);
+    };
+}
+const daniel = new CordialPerson('Pikachu');
+const pikachu = new CordialPerson('Daniel');
 
+daniel.speak();
+pikachu.speak();
 
-// daniel.speak();
-// pikachu.speak();
-
-// daniel.speak.call(pikachu);
-// pikachu.speak.apply(daniel);
+daniel.speak.call(pikachu);
+pikachu.speak.apply(daniel);
 
